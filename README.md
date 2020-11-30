@@ -1,6 +1,6 @@
-# flutter_app
+# Clock App
 
-A new Flutter application.
+A new Flutter Clock application. DSC Unilag final project.
 
 ## Getting Started
 
