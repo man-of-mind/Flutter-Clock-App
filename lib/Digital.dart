@@ -29,24 +29,44 @@ class _DigitalClock extends State<DigitalClock> {
 
   @override
   Widget build(BuildContext context) {
+    var minuteTime = _timeOfDay.minute < 10 ? "0" + _timeOfDay.minute.toString(): _timeOfDay.minute;
     String _period = _timeOfDay.period == DayPeriod.am ? "AM" : "PM";
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          // if you use _timeOfDay.hour then it will show 20:10 like that
-          // But we want 8:10
-          "${_timeOfDay.hourOfPeriod}:${_timeOfDay.minute}",
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        SizedBox(width: 5),
-        RotatedBox(
-          quarterTurns: 3,
-          child: Text(
-            _period,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Digital Clock'),
+        centerTitle: true,
+        leading: InkWell(
+          onTap: () => Navigator.pop(context),
+          child: Row(
+            children: [
+              Icon(Icons.arrow_back),
+              SizedBox(
+                width: 5,
+              ),
+            ],
           ),
         ),
-      ],
+      ),
+      body:Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              // if you use _timeOfDay.hour then it will show 20:10 like that
+              // But we want 8:10
+              "${_timeOfDay.hourOfPeriod}:$minuteTime",
+              style: Theme.of(context).textTheme.headline1,
+            ),
+            SizedBox(width: 5),
+            RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                _period,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
