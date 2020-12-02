@@ -40,8 +40,8 @@ class MyProject extends StatelessWidget {
               InkWell(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.green,
-                    border: Border.all(color: Colors.green, width: 8),
+                    color: Colors.blue,
+                    border: Border.all(color: Colors.blue, width: 8),
                     borderRadius: BorderRadius.circular(15),
 
                   ),
@@ -71,8 +71,8 @@ class MyProject extends StatelessWidget {
               InkWell(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.redAccent,
-                    border: Border.all(color: Colors.redAccent, width: 8),
+                    color: Colors.blue,
+                    border: Border.all(color: Colors.blue, width: 8),
                     borderRadius: BorderRadius.circular(15),
 
                   ),

@@ -32,6 +32,7 @@ class _DigitalClock extends State<DigitalClock> {
     var minuteTime = _timeOfDay.minute < 10 ? "0" + _timeOfDay.minute.toString(): _timeOfDay.minute;
     String _period = _timeOfDay.period == DayPeriod.am ? "AM" : "PM";
     return Scaffold(
+      backgroundColor: Color.fromRGBO(8, 25, 35, 1),
       appBar: AppBar(
         title: Text('Digital Clock'),
         centerTitle: true,
@@ -55,13 +56,15 @@ class _DigitalClock extends State<DigitalClock> {
               // if you use _timeOfDay.hour then it will show 20:10 like that
               // But we want 8:10
               "${_timeOfDay.hourOfPeriod}:$minuteTime",
-              style: Theme.of(context).textTheme.headline1,
+ //             style: Theme.of(context).textTheme.headline1,
+                style: (TextStyle(color: Colors.white, fontSize: 100))
             ),
             SizedBox(width: 5),
             RotatedBox(
-              quarterTurns: 3,
+              quarterTurns: 4,
               child: Text(
                 _period,
+                style: (TextStyle(color: Colors.white, fontSize: 20)),
               ),
             ),
           ],
