@@ -2,6 +2,8 @@
 
 A new Flutter Clock application. DSC Unilag final project.
 
+It has both analog and digital version.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
