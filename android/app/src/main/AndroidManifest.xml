@@ -2,7 +2,7 @@
     package="com.example.flutter_app">
    <application
         android:label="Clock"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/clock_without_hands">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
