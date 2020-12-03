@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'AnalogClock.dart';
 import 'Digital.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -20,13 +20,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clock'),
+        title: Text('CLOCK'),
         centerTitle: true,
       ),
       body: Center(
@@ -35,7 +34,7 @@ class MyProject extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children:[
+            children: [
               Spacer(),
               InkWell(
                 child: Container(
@@ -43,7 +42,6 @@ class MyProject extends StatelessWidget {
                     color: Colors.blue,
                     border: Border.all(color: Colors.blue, width: 8),
                     borderRadius: BorderRadius.circular(15),
-
                   ),
                   child: Text("Analog Clock",
                       textAlign: TextAlign.center,
@@ -58,23 +56,19 @@ class MyProject extends StatelessWidget {
                   );
                 },
               ),
-
               Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(color: Colors.white, width: 4),
                   ),
-                  child: Text("")
-              ),
-
+                  child: Text("")),
               InkWell(
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     border: Border.all(color: Colors.blue, width: 8),
                     borderRadius: BorderRadius.circular(15),
-
                   ),
                   child: Text("Digital Clock",
                       textAlign: TextAlign.center,
@@ -89,7 +83,6 @@ class MyProject extends StatelessWidget {
                   );
                 },
               ),
-
               Spacer(),
             ],
           ),

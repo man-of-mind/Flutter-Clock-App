@@ -44,7 +44,7 @@ class _DigitalClock extends State<DigitalClock> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(8, 25, 35, 1),
       appBar: AppBar(
-        title: Text('Digital Clock'),
+        title: Text('DIGITAL CLOCK'),
         centerTitle: true,
         leading: InkWell(
           onTap: () => Navigator.pop(context),

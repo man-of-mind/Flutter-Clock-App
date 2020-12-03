@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
-import 'dart:math';
 import 'dart:async';
+import 'dart:math';
 
+import 'package:flutter/material.dart';
 
-class Clock extends StatefulWidget{
-  Clock({Key key}) : super (key: key);
+class Clock extends StatefulWidget {
+  Clock({Key key}) : super(key: key);
 
   @override
   _ClockState createState() => _ClockState();
 }
 
-class _ClockState extends State<Clock>{
+class _ClockState extends State<Clock> {
   double minutes = 0;
   double seconds = 0;
   double hours = 0;
@@ -35,7 +35,7 @@ class _ClockState extends State<Clock>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(' Analog Clock'),
+        title: Text('ANALOG CLOCK'),
         centerTitle: true,
         leading: InkWell(
           onTap: () => Navigator.pop(context),
@@ -49,58 +49,60 @@ class _ClockState extends State<Clock>{
           ),
         ),
       ),
-      body:
-      Container(
+      body: Container(
         child: Container(
           child: Stack(
             children: <Widget>[
               Image.asset('assets/clock1.jpg'),
-
               Transform.rotate(
                 child: Container(
                   child: Container(
                     height: 115,
                     width: 2,
-                    decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   alignment: Alignment(0, -0.35),
                 ),
                 angle: seconds,
               ),
-
               Transform.rotate(
-                child:Container(
+                child: Container(
                   child: Container(
                     height: 95,
                     width: 5,
-                    decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10),
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   alignment: Alignment(0, -0.35),
                 ),
                 angle: minutes,
               ),
-
               Transform.rotate(
                 child: Container(
                   child: Container(
                     height: 70,
                     width: 7,
-                    decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.circular(10),
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   alignment: Alignment(0, -0.2),
                 ),
                 angle: hours,
               ),
-
-
               Container(
                 child: Container(
                   height: 15,
                   width: 15,
-                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(50),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(50),
                   ),
                 ),
                 alignment: Alignment(0, 0),
@@ -116,7 +118,7 @@ class _ClockState extends State<Clock>{
         ),
         //        color: Color.fromRGBO(8, 25, 35, 1),
         color: Colors.white,
-        alignment: Alignment (0, 0),
+        alignment: Alignment(0, 0),
       ),
     );
   }
