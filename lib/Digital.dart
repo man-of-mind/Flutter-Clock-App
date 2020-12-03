@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-
 class DigitalClock extends StatefulWidget {
   @override
   _DigitalClock createState() => _DigitalClock();
@@ -29,15 +28,18 @@ class _DigitalClock extends State<DigitalClock> {
 
   @override
   Widget build(BuildContext context) {
-    var minuteTime = _timeOfDay.minute < 10 ? "0" + _timeOfDay.minute.toString(): _timeOfDay.minute;
+    var minuteTime = _timeOfDay.minute < 10
+        ? "0" + _timeOfDay.minute.toString()
+        : _timeOfDay.minute;
     String _period = _timeOfDay.period == DayPeriod.am ? "AM" : "PM";
 //    var hour = _timeOfDay.hourOfPeriod < 10 ? "0" + _timeOfDay.hourOfPeriod.toString() : _timeOfDay.hourOfPeriod;
     var hour;
-    if (_timeOfDay.hourOfPeriod > 0 && _timeOfDay.hourOfPeriod < 10){
+    if (_timeOfDay.hourOfPeriod > 0 && _timeOfDay.hourOfPeriod < 10) {
       hour = "0" + _timeOfDay.hourOfPeriod.toString();
-    }
-    else if(_timeOfDay.hourOfPeriod == 0){
+    } else if (_timeOfDay.hourOfPeriod == 0) {
       hour = "12";
+    } else {
+      hour = _timeOfDay.hourOfPeriod;
     }
     return Scaffold(
       backgroundColor: Color.fromRGBO(8, 25, 35, 1),
@@ -56,17 +58,16 @@ class _DigitalClock extends State<DigitalClock> {
           ),
         ),
       ),
-      body:Center(
+      body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              // if you use _timeOfDay.hour then it will show 20:10 like that
-              // But we want 8:10
-              "$hour:$minuteTime",
- //             style: Theme.of(context).textTheme.headline1,
-                style: (TextStyle(color: Colors.white, fontSize: 100))
-            ),
+                // if you use _timeOfDay.hour then it will show 20:10 like that
+                // But we want 8:10
+                "$hour:$minuteTime",
+                //             style: Theme.of(context).textTheme.headline1,
+                style: (TextStyle(color: Colors.white, fontSize: 100))),
             SizedBox(width: 5),
             RotatedBox(
               quarterTurns: 4,
