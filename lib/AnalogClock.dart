@@ -33,6 +33,8 @@ class _ClockState extends State<Clock> {
 
   @override
   Widget build(BuildContext context) {
+    DateTime dateTime = new DateTime.now();
+    var day = dateTime.day < 10 ? "0" + dateTime.day.toString() : dateTime.day;
     return Scaffold(
       appBar: AppBar(
         title: Text('ANALOG CLOCK'),
@@ -49,76 +51,85 @@ class _ClockState extends State<Clock> {
           ),
         ),
       ),
-      body: Container(
-        child: Container(
-          child: Stack(
-            children: <Widget>[
-              Image.asset('assets/clock1.jpg'),
-              Transform.rotate(
-                child: Container(
-                  child: Container(
-                    height: 115,
-                    width: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
+      body: Column(
+        children: [
+          Spacer(),
+          Container(
+            child: Container(
+              child: Stack(
+                children: <Widget>[
+                  Image.asset('assets/clock1.jpg'),
+                  Transform.rotate(
+                    child: Container(
+                      child: Container(
+                        height: 115,
+                        width: 2,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      alignment: Alignment(0, -0.35),
                     ),
+                    angle: seconds,
                   ),
-                  alignment: Alignment(0, -0.35),
-                ),
-                angle: seconds,
-              ),
-              Transform.rotate(
-                child: Container(
-                  child: Container(
-                    height: 95,
-                    width: 5,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
+                  Transform.rotate(
+                    child: Container(
+                      child: Container(
+                        height: 95,
+                        width: 5,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      alignment: Alignment(0, -0.35),
                     ),
+                    angle: minutes,
                   ),
-                  alignment: Alignment(0, -0.35),
-                ),
-                angle: minutes,
-              ),
-              Transform.rotate(
-                child: Container(
-                  child: Container(
-                    height: 70,
-                    width: 7,
-                    decoration: BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.circular(10),
+                  Transform.rotate(
+                    child: Container(
+                      child: Container(
+                        height: 70,
+                        width: 7,
+                        decoration: BoxDecoration(
+                          color: Colors.pink,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      alignment: Alignment(0, -0.2),
                     ),
+                    angle: hours,
                   ),
-                  alignment: Alignment(0, -0.2),
-                ),
-                angle: hours,
-              ),
-              Container(
-                child: Container(
-                  height: 15,
-                  width: 15,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(50),
+                  Container(
+                    child: Container(
+                      height: 15,
+                      width: 15,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                    alignment: Alignment(0, 0),
                   ),
-                ),
-                alignment: Alignment(0, 0),
+                ],
               ),
-            ],
+              width: 300,
+              height: 300,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black45, width: 8),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            //        color: Color.fromRGBO(8, 25, 35, 1),
+            color: Colors.white,
+            alignment: Alignment(0, 0),
           ),
-          width: 300,
-          height: 300,
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black45, width: 8),
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        //        color: Color.fromRGBO(8, 25, 35, 1),
-        color: Colors.white,
-        alignment: Alignment(0, 0),
+          Spacer(),
+          Text('$day-${dateTime.month}-${dateTime.year}',
+              style: TextStyle(color: Colors.black87, fontSize: 50)),
+          Spacer(),
+        ],
       ),
     );
   }
