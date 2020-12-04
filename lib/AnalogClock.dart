@@ -35,6 +35,35 @@ class _ClockState extends State<Clock> {
   Widget build(BuildContext context) {
     DateTime dateTime = new DateTime.now();
     var day = dateTime.day < 10 ? "0" + dateTime.day.toString() : dateTime.day;
+    var month =
+        dateTime.month < 10 ? "0" + dateTime.month.toString() : dateTime.month;
+    String weekDay;
+    int today = dateTime.weekday;
+    switch (today) {
+      case 1:
+        weekDay = "MONDAY";
+        break;
+      case 2:
+        weekDay = "TUESDAY";
+        break;
+      case 3:
+        weekDay = "WEDNESDAY";
+        break;
+      case 4:
+        weekDay = "THURSDAY";
+        break;
+      case 5:
+        weekDay = "FRIDAY";
+        break;
+      case 6:
+        weekDay = "SATURDAY";
+        break;
+      case 7:
+        weekDay = "SUNDAY";
+        break;
+      default:
+        break;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text('ANALOG CLOCK'),
@@ -126,8 +155,12 @@ class _ClockState extends State<Clock> {
             alignment: Alignment(0, 0),
           ),
           Spacer(),
-          Text('$day-${dateTime.month}-${dateTime.year}',
-              style: TextStyle(color: Colors.black87, fontSize: 50)),
+          Card(
+            color: Colors.white,
+            child: Text('$day-$month-${dateTime.year}',
+                style: TextStyle(color: Colors.black, fontSize: 50)),
+          ),
+          Card(child: Text('$weekDay', style: TextStyle(fontSize: 25))),
           Spacer(),
         ],
       ),
